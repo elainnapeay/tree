@@ -12,7 +12,7 @@ def drawTree(x1, y1, angle, depth):
     if depth > 0:
         x2 = x1 + int(math.cos(math.radians(angle))* depth * base_len)
         y2 = y1 + int(math.sin(math.radians(angle))*depth * base_len)
-        pygame.draw.line(screen, (255,255,255), (x1,y1), (x2, y2), 2)
+        pygame.draw.line(screen, (255, 0, 0), (x1, y1), (x2, y2), 2)
         drawTree(x2, y2, angle - fork_angle, depth -1)
         drawTree(x2, y2, angle + fork_angle, depth -1)
 
