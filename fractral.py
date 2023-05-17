@@ -6,6 +6,12 @@ window = pygame.display.set_mode((600,600))
 pygame.display.set_caption("Frac Tree")
 screen = pygame.display.get_surface()
 
+
+x1 = 300
+y1 = 600
+angle = -90
+depth = 9
+
 def drawTree(x1, y1, angle, depth):
     fork_angle = 20
     base_len = 10.0
@@ -20,7 +26,15 @@ def input(event):
     if event.type == pygame.QUIT:
 	    exit(0)
 
-drawTree(300, 550, -90, 9)
 pygame.display.flip()
+
+clock = pygame.time.Clock()
 while True:
-      input(pygame.event.wait()) 
+     for event in pygame.event.get():
+        input(event)
+
+        screen.fill((0, 0, 0))
+        y1 -= 1
+        drawTree(x1,y1,angle,depth)
+        pygame.display.update()
+        clock.tick(60)
